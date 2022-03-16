@@ -5,9 +5,15 @@ const email = document.querySelector('input');
 const message = document.querySelector('textarea');
 const STORAGE_KEY = 'feedback-form-state';
 
-const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY))
-email.value = storageData.email;
-message.value = storageData.message;
+function projectStart() {
+  if (localStorage.getItem(STORAGE_KEY) !== null) {
+    const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY))
+    email.value = storageData.email;
+    message.value = storageData.message;
+  }
+}
+
+projectStart();
 
 const setFormData = (e) => {
   e.preventDefault();
