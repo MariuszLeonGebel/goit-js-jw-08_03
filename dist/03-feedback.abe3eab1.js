@@ -571,12 +571,6 @@ const email = document.querySelector('input');
 const message = document.querySelector('textarea');
 const STORAGE_KEY = 'feedback-form-state';
 
-if (localStorage.getItem(STORAGE_KEY) !== null) {
-  const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  email.value = storageData.email;
-  message.value = storageData.message;
-}
-
 const setFormData = e => {
   e.preventDefault();
   const {
@@ -590,6 +584,14 @@ const setFormData = e => {
     message: message.value
   }));
 };
+
+console.log(localStorage.getItem(STORAGE_KEY));
+
+if (localStorage.getItem(STORAGE_KEY) !== null) {
+  const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  email.value = storageData.email;
+  message.value = storageData.message;
+}
 
 form.addEventListener('input', (0, _lodash.default)(setFormData, 500));
 
