@@ -571,6 +571,7 @@ const email = document.querySelector('input');
 const message = document.querySelector('textarea');
 const STORAGE_KEY = 'feedback-form-state';
 const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+console.log(storageData);
 
 if (storageData !== null) {
   email.value = storageData.email;
