@@ -591,6 +591,11 @@ if (localStorage.getItem(STORAGE_KEY) !== null) {
   const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   email.value = storageData.email;
   message.value = storageData.message;
+} else {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    email: "",
+    message: ""
+  }));
 }
 
 form.addEventListener('input', (0, _lodash.default)(setFormData, 500));
@@ -632,7 +637,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56222" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58162" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

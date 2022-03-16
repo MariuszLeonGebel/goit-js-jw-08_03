@@ -18,7 +18,7 @@ const setFormData = (e) => {
     STORAGE_KEY,
     JSON.stringify({
       email: email.value,
-      message: message.value,
+      message: message.value
     }),
   );
 }
@@ -28,6 +28,14 @@ if (localStorage.getItem(STORAGE_KEY) !== null) {
   const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY))
   email.value = storageData.email;
   message.value = storageData.message;
+} else {
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      email: "",
+      message: ""
+    }),
+  );
 }
 
 form.addEventListener('input', throttle(setFormData, 500));
